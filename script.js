@@ -35,7 +35,7 @@ const scenes = [
     img: "zen.png",
     choices: [
       { text: "Stall the audience", score: 2, reaction: "You improvise with jokes and facts. You’re not a speaker, but you survive." },
-      { text: "Quietly panic backstage", score: 0, reaction: "You hyperventilate for 20 seconds. Then someone else saves the day." }
+      { text: "Quietly panic backstage", score: 0, reaction: "You get a bit flustered, but manage to stay calm until help arrives." }
     ]
   },
   {
