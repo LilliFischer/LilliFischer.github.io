@@ -1,0 +1,158 @@
+body {
+    background: #f2f2f2;
+    font-family: 'Courier New', sans-serif;
+    font-weight: 600;
+    padding: 2rem;
+    text-align: center;
+    color: #333;
+  }
+  #start-screen {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  
+  
+  
+  
+  
+  #counter {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  #game {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+  
+  #image-container {
+    position: absolute;
+    top: 200; /* Abstand von oben innerhalb des Game-Containers */
+    right: 20px; /* Abstand vom rechten Rand */
+    width: 300px;
+    height: 300px; /* feste Höhe für das Bild */
+    overflow: hidden; /* Falls Bild zu groß */
+  }
+  #choices {
+    min-height: 120px; /* je nach Anzahl der Buttons anpassen */
+  }
+  
+  #scene-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Bild bleibt im Container */
+  }
+
+  button {
+    margin: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-family: 'Courier New', sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    background: #f35675;
+    color: white;
+    cursor: pointer;
+    opacity: 100;
+    transition: opacity 0.5s ease;
+    transition: all 0.3s ease; /* weiche Übergänge */
+  }
+  
+  button.visible {
+    opacity: 1;
+  }
+
+  button:hover {
+    background: #f35675;
+    transform: scale(1.05); /* leicht vergrößern */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Schatten */
+  }
+/* Sidebar-Container */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -200px; /* vollständig ausgeblendet */
+  height: 100%;
+  width: 200px;
+  background-color: #f35675;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Eingeklappt zeigt nur das Icon */
+.sidebar .menu-icon {
+  position: absolute;
+  top: 10px;
+  right: -45px; /* Hamburger-Icon ragt raus */
+  font-size: 28px;
+  background-color: #f2f0f0;
+  color: #f35675;
+  padding: 0px;
+  border-radius: 0px;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background-color 0.3s;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+/* Sidebar-Inhalt (nur sichtbar wenn ausgeklappt) */
+.sidebar-content {
+  margin-top: -10px;
+  display: none;
+  width: 100%;
+  flex-direction: column;
+}
+
+.sidebar.open .sidebar-content {
+  display: flex;
+}
+
+/* Links */
+.sidebar-content a {
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.sidebar-content a:hover {
+  background-color: #f5889e;
+}
+.sidebar-top-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* kleiner Wert für weniger Abstand */
+  padding: 10px;
+  
+}
+
+.sidebar-top-controls button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: white;
+  padding: 10px 30px; /* kleineres Padding */
+  margin: 0; /* falls noch Abstand war */
+  transition: transform 0.2s;
+}
+
+
+.sidebar-top-controls button:hover {
+  background-color: #f5889e;
+}
+
