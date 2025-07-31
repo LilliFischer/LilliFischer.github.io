@@ -60,7 +60,6 @@ const startScreen = document.getElementById('start-screen');
 const game = document.getElementById('game');
 const textElem = document.getElementById('text');
 const choicesElem = document.getElementById('choices');
-const energyBar = document.getElementById('energy-bar');
 
 function typeWriter(text, callback) {
     const textElem = document.getElementById("text");
