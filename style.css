@@ -11,7 +11,9 @@ body {
     padding: 2rem;
   }
   
-  
+  h2 {
+    color: #f35675; /* Titel-Farbe */
+  }
   
   
   
@@ -155,4 +157,18 @@ body {
 .sidebar-top-controls button:hover {
   background-color: #f5889e;
 }
+a {
+  color: #f35675; /* normale Linkfarbe */
+  text-decoration: none; /* Unterstreichung entfernen, optional */
+}
 
+a:hover {
+  color: #fac3ce; /* Farbe beim Darüberfahren */
+}
+
+footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}

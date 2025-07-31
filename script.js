@@ -47,7 +47,7 @@ const scenes = [
     ]
   },
   {
-    text: "Final event: The IFTR Closing Party! Your energy is low, but cake is high.",
+    text: "Final event: The IFTR Closing Party! Your energy is low, but the Kölsch is flowing.",
     img: "dancing.png",
     choices: [
       { text: "Hit the dance floor", score: 1, reaction: "You unleash your inner rhythm. People cheer. You feel alive." },
@@ -268,14 +268,14 @@ function goToStartScreen() {
   personalityScore = 0;
 }
 // Navigation zu Unterseiten wie "About", "Credits", "Why"
-document.querySelectorAll(".sidebar-content a").forEach(link => {
+document.querySelectorAll(".sidebar-content a, footer a").forEach(link => {
   link.addEventListener("click", (e) => {
     e.preventDefault(); // Standardlink verhindern
     
     const targetId = link.getAttribute("href").substring(1);
 
     // Alle Abschnitte ausblenden
-    ["start-screen", "game", "why", "about", "credits", "counter"].forEach(id => {
+    ["start-screen", "game", "why", "about", "credits", "counter", "impressum"].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.style.display = "none";
     });
@@ -322,7 +322,7 @@ function goToStartScreen() {
   }
 
   // Alle anderen Sektionen ausblenden
-  ["why", "credits", "game", "counter"].forEach(id => {
+  ["why", "credits", "game", "counter","impressum"].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.style.display = "none";
   });
@@ -339,4 +339,5 @@ function goToStartScreen() {
   currentScene = 0;
   personalityScore = 0;
 }
+
 
