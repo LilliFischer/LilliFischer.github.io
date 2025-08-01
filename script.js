@@ -36,7 +36,7 @@ const scenes = [
     img: "running.png",
     choices: [
       { text: "Try to fix it yourself", score: 1, reaction: "You fiddle with cables like a wizard. It works… kind of." },
-      { text: "You ask another tech-savvy volunteer for help", score: 2, reaction: "You stay calm and escalate smart. Help comes in and fixes it fast." }
+      { text: "You ask another tech-savvy volunteer for help", score: 2, reaction: "You stay calm. Help comes in and fixes it fast." }
     ]
   },
   {
@@ -51,15 +51,15 @@ const scenes = [
     text: "A speaker doesn’t show up. You’re the only volunteer nearby.",
     img: "zen.png",
     choices: [
-      { text: "Stall the audience", score: 2, reaction: "You improvise with jokes and facts. You’re not a speaker, but you survive." },
-      { text: "Quietly panic backstage", score: 0, reaction: "You get a bit flustered, but manage to stay calm until help arrives." }
+      { text: "Entertain the audience", score: 2, reaction: "You improvise with jokes and facts. You’re not a speaker, but you survive." },
+      { text: "Quietly panic", score: 0, reaction: "You get a bit flustered, but manage to stay calm until help arrives." }
     ]
   },
   {
     text: "Someone asks for directions to room XVIIa. How do you respond?",
     img: "walking.png",
     choices: [
-      { text: "Give clear, detailed directions", score: 2, reaction: "You confidently guide them. They thank you and seem relieved." },
+      { text: "Give clear and detailed directions", score: 2, reaction: "You confidently guide them. They thank you and seem relieved." },
       { text: "Point vaguely and hope for the best", score: 0, reaction: "You gesture vaguely. Hopefully, they don’t get lost!" }
     ]
   },
