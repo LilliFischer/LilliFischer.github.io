@@ -1,87 +1,113 @@
+/*
+=====================================
+ Volunteer Simulator – IFTR 2025
+ CSS Styling für Spiel, Navigation & Layout
+=====================================
+*/
+
+/* ---------- Grundlegendes Layout ---------- */
 body {
-    background: #f2f2f2;
-    font-family: 'Courier New', sans-serif;
-    font-weight: 600;
-    padding: 2rem;
-    text-align: center;
-    color: #333;
-  }
-  #start-screen {
-    text-align: center;
-    padding: 2rem;
-  }
-  
-  h2 {
-    color: #f35675; /* Titel-Farbe */
-  }
-  
-  
-  
-  
-  #counter {
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  
-  #game {
-    max-width: 600px;
-    margin: auto;
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  }
-  
-  #image-container {
-    position: absolute;
-    top: 200; /* Abstand von oben innerhalb des Game-Containers */
-    right: 20px; /* Abstand vom rechten Rand */
-    width: 300px;
-    height: 300px; /* feste Höhe für das Bild */
-    overflow: hidden; /* Falls Bild zu groß */
-  }
-  #choices {
-    min-height: 120px; /* je nach Anzahl der Buttons anpassen */
-  }
-  
-  #scene-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Bild bleibt im Container */
-  }
+  background: #f2f2f2;
+  font-family: 'Courier New', sans-serif;
+  font-weight: 600;
+  padding: 2rem;
+  text-align: center;
+  color: #333;
+}
 
-  button {
-    margin: 1rem;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-family: 'Courier New', sans-serif;
-    font-weight: 600;
-    border: none;
-    border-radius: 0.5rem;
-    background: #f35675;
-    color: white;
-    cursor: pointer;
-    opacity: 100;
-    transition: opacity 0.5s ease;
-    transition: all 0.3s ease; /* weiche Übergänge */
-  }
-  
-  button.visible {
-    opacity: 1;
-  }
+h2 {
+  color: #f35675;
+}
 
-  button:hover {
-    background: #f35675;
-    transform: scale(1.05); /* leicht vergrößern */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Schatten */
-  }
-/* Sidebar-Container */
+a {
+  color: #f35675;
+  text-decoration: none;
+}
+a:hover {
+  color: #fac3ce;
+}
+
+footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- Startscreen ---------- */
+#start-screen {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ---------- Spiel-Counter ---------- */
+#counter {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* ---------- Spielbereich ---------- */
+#game {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+#image-container {
+  position: absolute;
+  top: 200px;
+  right: 20px;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+#scene-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#choices {
+  min-height: 120px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+  margin: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-family: 'Courier New', sans-serif;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  background: #f35675;
+  color: white;
+  cursor: pointer;
+  opacity: 100;
+  transition: all 0.3s ease;
+}
+
+button.visible {
+  opacity: 1;
+}
+
+button:hover {
+  background: #f35675;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- Sidebar ---------- */
 .sidebar {
   position: fixed;
   top: 0;
-  left: -200px; /* vollständig ausgeblendet */
+  left: -200px;
   height: 100%;
   width: 200px;
   background-color: #f35675;
@@ -92,11 +118,14 @@ body {
   align-items: flex-start;
 }
 
-/* Eingeklappt zeigt nur das Icon */
-.sidebar .menu-icon {
+.sidebar.open {
+  left: 0;
+}
+
+.menu-icon {
   position: absolute;
   top: 10px;
-  right: -45px; /* Hamburger-Icon ragt raus */
+  right: -45px;
   font-size: 28px;
   background-color: #f2f0f0;
   color: #f35675;
@@ -107,11 +136,6 @@ body {
   transition: background-color 0.3s;
 }
 
-.sidebar.open {
-  left: 0;
-}
-
-/* Sidebar-Inhalt (nur sichtbar wenn ausgeklappt) */
 .sidebar-content {
   margin-top: -10px;
   display: none;
@@ -123,7 +147,6 @@ body {
   display: flex;
 }
 
-/* Links */
 .sidebar-content a {
   color: white;
   padding: 12px 20px;
@@ -134,12 +157,13 @@ body {
 .sidebar-content a:hover {
   background-color: #f5889e;
 }
+
+/* ---------- Sidebar Steuerbuttons ---------- */
 .sidebar-top-controls {
   display: flex;
   justify-content: center;
-  gap: 10px; /* kleiner Wert für weniger Abstand */
+  gap: 10px;
   padding: 10px;
-  
 }
 
 .sidebar-top-controls button {
@@ -148,27 +172,11 @@ body {
   cursor: pointer;
   font-size: 1.4rem;
   color: white;
-  padding: 10px 30px; /* kleineres Padding */
-  margin: 0; /* falls noch Abstand war */
+  padding: 10px 30px;
+  margin: 0;
   transition: transform 0.2s;
 }
 
-
 .sidebar-top-controls button:hover {
   background-color: #f5889e;
-}
-a {
-  color: #f35675; /* normale Linkfarbe */
-  text-decoration: none; /* Unterstreichung entfernen, optional */
-}
-
-a:hover {
-  color: #fac3ce; /* Farbe beim Darüberfahren */
-}
-
-footer {
-  background-color: #f1f1f1;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
 }

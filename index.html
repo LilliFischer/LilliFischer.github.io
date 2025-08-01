@@ -1,99 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Volunteer Simulator – IFTR 2025</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="sidebar" id="sidebar">
-    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
-    <div class="sidebar-top-controls">
-      <!-- Sound-Toggle -->
-      <button onclick="toggleMute()" title="Toggle Sound">
-        <img id="mute-icon" src="images/sound.png" alt="Sound" style="width:24px; height:24px;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Volunteer Simulator – IFTR 2025</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Sidebar with menu and navigation links -->
+    <div class="sidebar" id="sidebar">
+      <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+      <div class="sidebar-top-controls">
+        <button onclick="toggleMute()" title="Toggle Sound">
+          <img id="mute-icon" src="images/sound.png" alt="Sound" style="width:24px; height:24px;" />
+        </button>
+        <button onclick="goToStartScreen()" title="Go to Start">
+          <img src="images/house.png" alt="Home" style="width:24px; height:24px;" />
+        </button>
+      </div>
+      <nav class="sidebar-content">
+        <a href="#why">About this Game</a>
+        <a href="#credits">Credits</a>
+      </nav>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="start-screen" style="padding: 2rem; max-width: 700px; margin: auto;">
+      <h1>Welcome to the IFTR Volunteer Simulator</h1>
+      <button id="start-btn" style="padding: 1rem 2rem; font-size: 1.25rem; border-radius: 8px;">
+        Start Game
       </button>
-      <!-- Zurück zum Start -->
-      <button onclick="goToStartScreen()" title="Go to Start">
-        <img src="images/house.png" alt="Home" style="width:24px; height:24px;">
-      </button>
+      <div class="img-row" style="margin-top: 1rem;">
+        <img src="images/stressed.png" alt="stressed" width="250" />
+      </div>
     </div>
-    <nav class="sidebar-content">
-      <a href="#why">About this Game</a>
-      <a href="#credits">Credits</a>
-    </nav>
-  </div>
 
-  <!-- Start Screen -->
-  <div id="start-screen" style="padding: 2rem; max-width: 700px; margin: auto;">
-    <h1>Welcome to the IFTR Volunteer Simulator</h1>
-    <button id="start-btn" style="padding: 1rem 2rem; font-size: 1.25rem; border-radius: 8px;">
-      Start Game
-    </button>
-    <div class="img-row" style="margin-top: 1rem;">
-      <img src="images/stressed.png" alt="stressed" width="250"/>
+    <!-- Counter displayed during game -->
+    <div id="counter" style="display: none; text-align: center; margin: 1rem 0;"></div>
+
+    <!-- Main game container -->
+    <div id="game" style="display:none; max-width: 700px; margin: auto;">
+      <div id="content-wrapper">
+        <p id="text">Welcome to your first day as a volunteer at IFTR 2025. What do you want to do first?</p>
+      </div>
+      <div id="image-container">
+        <img id="scene-image" src="" alt="" />
+      </div>
+      <div id="choices">
+        <button onclick="choose('badge')">&rarr; Hand out name badges</button>
+        <button onclick="choose('coffee')">&rarr; Search for coffee</button>
+      </div>
     </div>
-  </div>
 
-  <!-- Counter (nur im Spiel sichtbar) -->
-  <div id="counter" style="display: none; text-align: center; margin: 1rem 0;"></div>
-
-  <!-- Spielbereich -->
-  <div id="game" style="display:none; max-width: 700px; margin: auto;">
-    <div id="content-wrapper">
-      <p id="text">Welcome to your first day as a volunteer at IFTR 2025. What do you want to do first?</p>
+    <!-- About Section -->
+    <div id="why" style="display: none; max-width: 700px; padding: 2rem; position: relative; margin: auto;">
+      <h2>About this Game</h2>
+      <p>
+        As part of my media project, I wanted to explore an interactive and playful format to reflect on the often invisible labor behind academic conferences. A game allows players to experience some of the pressures, choices, and personalities that shape volunteer work in such settings. By blending humor and relatable scenarios, I hope to both entertain and provoke thought about the value of behind-the-scenes contributions.
+      </p>
+      <img src="images/conversation.png" alt="conversation" style="width: 100%; max-width: 250px; margin-top: 1rem;" />
     </div>
-    <div id="image-container">
-      <img id="scene-image" src="" alt="" />
-    </div>
-    <div id="choices">
-      <button onclick="choose('badge')">→ Hand out name badges</button>
-      <button onclick="choose('coffee')">→ Search for coffee</button>
-    </div>
-  </div>
 
-  <!-- WHY Section -->
-  <div id="why" style="display: none; max-width: 700px; padding: 2rem; position: relative; margin: auto;">
-    <h2>About this Game</h2>
-    <p>
-      As part of my media project, I wanted to explore an interactive and playful format
-      to reflect on the often invisible labor behind academic conferences. A game allows
-      players to experience some of the pressures, choices, and personalities that shape
-      volunteer work in such settings. By blending humor and relatable scenarios, I hope to
-      both entertain and provoke thought about the value of behind-the-scenes contributions.
-    </p>
-    <img src="images/conversation.png" alt="conversation" style="width: 100%; max-width: 250px; margin-top: 1rem;">
-  </div>
-
-  <!-- Credits Section -->
-  <div id="credits" style="max-width: 700px; padding: 2rem; display: none; margin: auto;">
-    <h2>Credits</h2>
+    <!-- Credits Section -->
+    <div id="credits" style="max-width: 700px; padding: 2rem; display: none; margin: auto;">
+      <h2>Credits</h2>
       <p>The illustrations used on this website are provided by <a href="https://blush.design/" target="_blank" rel="noopener noreferrer">Blush</a>, used under their license terms.</p>
       <p>The sound effects are sourced from <a href="https://pixabay.com/sound-effects/" target="_blank" rel="noopener noreferrer">Pixabay</a>, used under Creative Commons licensing.</p>
       <p>The website is hosted using <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>.</p>
-      <img src="images/laying.png" alt="laying" style="width: 100%; max-width: 250px; margin-top: 1rem;">
+      <img src="images/laying.png" alt="laying" style="width: 100%; max-width: 250px; margin-top: 1rem;" />
     </div>
-    
+
+    <!-- Footer with Impressum -->
     <footer style="text-align: center; margin-top: 2rem; font-size: 0.9rem;">
-      <p>
-        | <a href="#impressum">Impressum</a> |
-      </p>
+      <p>| <a href="#impressum">Impressum</a> |</p>
     </footer>
+
+    <!-- Impressum Section -->
     <section id="impressum" style="display: none; padding: 1rem;">
       <h2>Impressum</h2>
+      <p>This website is a project created by a student for educational purposes only. No commercial intent or professional services are offered.</p>
       <p>
-        This website is a project created by a student for educational purposes only. No commercial intent or professional services are offered.
-      <p>
-        Person responsible according to § 5 TMG: Lilli Fischer<br>
-        c/o: Institut für Medienkultur und Theater<br>
-        Meister-Ekkehart-Straße 11<br>
-        50937 Köln<br>
+        Person responsible according to § 5 TMG: Lilli Fischer<br />
+        c/o: Institut für Medienkultur und Theater<br />
+        Meister-Ekkehart-Straße 11<br />
+        50937 Köln<br />
         Contact: lfisch49@smail.uni-koeln.de
       </p>
     </section>
-    
-  <script src="script.js"></script>
-</body>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+  </body>
 </html>
